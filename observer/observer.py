@@ -2,25 +2,38 @@ from abc import ABC, abstractmethod
 
 class Observer(ABC):
     @abstractmethod
-    def update(self):
+    def update(self) -> None:
         pass
 
-class InstagramAccount:
-    def __init__(self, username):
+class Subject(ABC):
+    @abstractmethod
+    def attach(self, observer: Observer) -> None:
+        pass
+
+    @abstractmethod
+    def detach(self, observer: Observer) -> None:
+        pass
+
+    @abstractmethod
+    def notify(self, observer: Observer) -> None:
+        pass
+
+class InstagramAccount(Subject):
+    def __init__(self, username: str):
         self.username = username
         self.__followers = []
     
-    def attach(self, observer):
+    def attach(self, observer: Observer) -> None:
         self.__followers.append(observer)
     
-    def detach(self, observer):
+    def detach(self, observer: Observer) -> None:
         self.__followers.remove(observer)
     
-    def notify(self):
+    def notify(self) -> None:
         for follower in self.__followers:
             follower.update()
     
-    def add_new_post(self, message):
+    def add_new_post(self, message) -> None:
         print(f"New post from {self.username}: {message}")
         self.notify()
 

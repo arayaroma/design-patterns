@@ -6,30 +6,30 @@ class Observer(abc.ABC):
         pass
 
 class InstagramAccount:
-    def __init__(self, name):
-        self.name = name
-        self.__account_followers = []
+    def __init__(self, username):
+        self.username = username
+        self.__followers = []
     
     def attach(self, observer):
-        self.__account_followers.append(observer)
+        self.__followers.append(observer)
     
     def detach(self, observer):
-        self.__account_followers.remove(observer)
+        self.__followers.remove(observer)
     
     def notify(self):
-        for follower in self.__account_followers:
+        for follower in self.__followers:
             follower.update()
     
     def add_new_post(self, message):
-        print(f"New post from {self.name}: {message}")
+        print(f"New post from {self.username}: {message}")
         self.notify()
 
 class Follower(Observer):
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, username):
+        self.username = username
 
     def update(self):
-        print(f"New post on Instagram: {self.name}")
+        print(f"New post on Instagram: {self.username}")
 
 def main():
     arayaroma = InstagramAccount("Daniel")

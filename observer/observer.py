@@ -1,7 +1,7 @@
-import abc
+from abc import ABC, abstractmethod
 
-class Observer(abc.ABC):
-    @abc.abstractmethod
+class Observer(ABC):
+    @abstractmethod
     def update(self):
         pass
 

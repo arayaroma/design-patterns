@@ -10,18 +10,17 @@ class MailerService:
         return MailerService.__instance
 
     def __init__(self):
-            # Set up SMTP server configuration
-            self.smtp_server = 'smtp.gmail.com'
-            self.smtp_port = 465
-            self.context = ssl.create_default_context()
+        # Set up SMTP server configuration
+        self.smtp_server = 'smtp.gmail.com'
+        self.smtp_port = 465
+        self.context = ssl.create_default_context()
 
-            # Load email credentials from environment variables
-            self.username = os.environ.get('EMAIL_USERNAME')
-            self.password = os.environ.get('EMAIL_PASSWORD')
-            self.sender_email = os.environ.get('EMAIL_SENDER')
+        # Load email credentials from environment variables
+        self.username = os.environ.get('EMAIL_USERNAME')
+        self.password = os.environ.get('EMAIL_PASSWORD')
+        self.sender_email = os.environ.get('EMAIL_SENDER')
 
-            MailerService.__instance = self
-
+        MailerService.__instance = self
 
     def send_email(self, recipient, subject, body):
         message = f'Subject: {subject}\n\n{body}'

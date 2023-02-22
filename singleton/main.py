@@ -9,6 +9,5 @@ def main():
     mailer.send_email(recipient, subject, body)
     del mailer
 
-
 if __name__ == '__main__':
     main()

@@ -2,9 +2,9 @@ from MailerSevice import MailerService
 
 def main():
     mailer = MailerService.get_instance()
-    recipient = 'darayaroma@gmail.com'
-    subject = 'Python Script'
-    body = 'Sending a email from a python script using the singleton design pattern'
+    recipient = 'klubarco@gmail.com'
+    subject = 'Tremendisimo'
+    body = 'tremendisimo script que le estoy mandando, que tal guapiss jijijiji, las espio en linux'
 
     mailer.send_email(recipient, subject, body)
     del mailer

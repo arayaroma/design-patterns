@@ -1,4 +1,5 @@
 # Visual Studio Config
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
+./vscode/*
+!./vscode/settings.json
+!./vscode/tasks.json
+./node_modules/*
